@@ -1,6 +1,7 @@
 # electron
 
 ###程序运行
+
 ```
 electron ./
 or
@@ -8,30 +9,15 @@ electron ./*.js
 ```
 
 ###程序开发
+
 + 程序入口文件：*.js
 + 主程序入口组件：require('electron')
 + UI程序入口组件：require('electron').remote
-> 主程序
-```
-const
-electron,
-{
-  app, 
-  crashReporter,
-  BrowserWindow, 
-  Menu,
-  MenuItem,
-  Tray,
-  shell, 
-  ipcMain, 
-  ipcRenderer,
-  globalShortcut,
-  remote,
-  dialog,
-  webContents,
-  nativeImage
-} = require('electron');
 
+> 
+主程序
+
+```
 {
 主程通知组件：const ipcMain = electron.ipcMain;
 程序：const app = electron.app; 
@@ -40,7 +26,10 @@ electron,
 托盘：const Tray = electron.Tray;
 }
 ```
-> UI程序
+
+> 
+UI程序
+
 ```
 {
 新标签：webview
@@ -51,14 +40,18 @@ UI通知组件：const ipcRenderer = electron.ipcRenderer;
 
 }
 ```
+
 > 互通消息
+
 ```
 {
 mainWindow.webContents.send("playControl", msg);
 ipcRenderer.on('playControl', (e, msg)=>{})
 }
 ```
+
 > 平台
+
 ```
 process.platform 
 darwin: OSX
@@ -67,6 +60,7 @@ linux: linux
 ```
 
 > F12 调试
+
 ```
 // F12打开开发者工具
 $(document).bind("keyup", function (event) {
@@ -79,6 +73,7 @@ $(document).bind("keyup", function (event) {
 ```
 
 > 程序更新
+
 ```
 const updater = require('electron-updater');
 updater.on('ready', function(){
@@ -108,6 +103,7 @@ updater.start(customLogger)
 ```
 
 ###版本：
+
 ```
 Node ：process.versions.node
 Chromium ：process.versions.chrome
@@ -167,12 +163,16 @@ win.webContents.session.on('will-download',(e, item, webContents)=>{
 ###手动下载Eelectron
 ```
 Electron 框架的前身是 Atom Shell,可以让你写使用 JavaScript,HTML 和CSS 构建跨平台的桌面应用程序。它是基于io.js 和 Chromium 开源项目,小编碰到npm安装Electron缓慢网络超时导致失败情况，下面我们来看看。
+
 1. npm源过慢的话，可以把源切到国内的淘宝的镜像上。
 npm config set registry https://registry.npm.taobao.org
+
 2. 到electron的国内镜像下载最新的安装包，主要看好自己系统对应的版本
 https://npm.taobao.org/mirrors/electron
+
 3. 将下载好的包放到当前用户的根目录下的.electron文件夹下，windows一般是
 C:\Users\YourUserName\.electron
+
 4. 执行安装命令npm install electron-prebuilt -g
 ```
 
@@ -181,25 +181,35 @@ C:\Users\YourUserName\.electron
 
 ```
 安装native模块三种方法：
+
 + electron-rebuild
+
 + 使用npm
+
 + 使用node-gyp
 ```
 
 ###测试
 
 + 测试渲染进程 DevTools
+
 + 测试主进程 node-inspector 
 
 
 ###简述
 
 + electron 可以看作一个小的chromium浏览器
+
 + 在electron中运行package.json和main.js的进程为主进程
+
 + 主进程通过BrowserWindow创建渲染进程
+
 + 主进程与渲染进程交互通过 ipcMain和ipcRenderer 监听和发送msg
+
 + 每个页面拥有自己的渲染进程
+
 + electron用户通过nodejs的API跨过网页沙箱访问系统应用
+
 
 ### process对象（与node中process区别）
 
@@ -288,6 +298,9 @@ Node API如fs.readFile
 ###开发笔记
 
 [Electron官网](http://www.yyyweb.com/ctools/demo.php?t=http%3A%2F%2Felectron.atom.io%2F&h=2800&c=&n=electron)
+
 [Electron API](./ElectronAPI.md)
+
 [Electron中文文档一](http://www.kancloud.cn/wizardforcel/electron-doc/137763)
+
 [Electron中文文档二](https://github.com/electron/electron/tree/master/docs-translations/zh-CN)
