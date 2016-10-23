@@ -1,6 +1,6 @@
 # Electron API文档
 
-###[首页]()
+###[首页](./README.md)
 
 ####主线程
 + Accelerator
