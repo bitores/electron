@@ -304,3 +304,5 @@ Node API如fs.readFile
 [Electron中文文档一](http://www.kancloud.cn/wizardforcel/electron-doc/137763)
 
 [Electron中文文档二](https://github.com/electron/electron/tree/master/docs-translations/zh-CN)
+
+[w3cSchool Electron教程](http://www.w3cschool.cn/electronmanual/wcx31ql6.html)
