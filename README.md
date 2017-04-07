@@ -274,6 +274,8 @@ window.open函数：
 
 ###打包
 
+> 方式1、asar 打包
+
 ```
 用nmp打包成asar:
 
@@ -292,7 +294,46 @@ electron之Windows下使用html,js,css,开发桌面应用程序_app.rar
 Node.js和Chromium提供的Web API
 Node API如fs.readFile
 ```
+> 方式2、electron-packager
 
+```
+
+```
+> 方式3、electron-builder
+
+```
+package.json中添加如下配置
+
+  "description": "A minimal Electron application",
+  "scripts": {
+    "start": "electron .",
+    "packager": "electron-packager ./ AppName -w --x64 --out ./ --version 1.4.1 --overwrite --icon=./app",
+    "dist": "npm run dist:linux && npm run dist:win",
+    "dist:osx": "build --project ./ -m --x64",
+    "dist:win": "build --project ./ -w --x64",
+    "dist:linux": "build --project ./ -l --x64"
+  },
+  "devDependencies": {
+    "electron-builder": "^16.7.1",
+    "electron-packager": "^8.6.0",
+    "electron-prebuilt": "^1.4.13"
+  },
+  "build": {
+    "appId": "521521",
+    "copyright": "Copyright @ 2017 huangzhengjie",
+    "mac": {
+      "icon": "./app"
+    },
+    "win": {
+      "icon": "./app"
+    },
+    "linux": {
+      "icon": "./app"
+    }
+  }
+
+
+```
 
 
 ###开发笔记
