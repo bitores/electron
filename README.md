@@ -335,6 +335,25 @@ package.json中添加如下配置
 
 ```
 
+#### 使用 JQuery
+
+```
+将jquery.min.js文件中最前的
+
+! function(a, b) {
+    "object" == typeof module && "object" == typeof module.exports ? module.exports = a.document ? b(a, !0) : function(a) {
+        if (!a.document) throw new Error("jQuery requires a window with a document");
+        return b(a)
+    } : b(a)
+}
+
+替换成
+
+!function(a,b){b(a)}
+
+就阔以了。
+```
+
 
 ###开发笔记
 
